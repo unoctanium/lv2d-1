@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx8r24p1eh8e3"]
+
+[ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="1_248tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h08fy"]
+size = Vector2(128, 128)
+
+[node name="Block" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h08fy")
+
+[node name="SpritesheetRetina" type="Sprite2D" parent="."]
+texture = ExtResource("1_248tv")
+region_enabled = true
+region_rect = Rect2(128, 1280, 128, 128)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://rqx8h0nv04vj"]
+
+[ext_resource type="Script" uid="uid://dewko733od8tt" path="res://character_manager/character_manager.gd" id="1_4qns8"]
+[ext_resource type="Shader" uid="uid://s5pj47hpfdvy" path="res://shaders/desaturate.gdshader" id="2_fqo24"]
+[ext_resource type="Script" uid="uid://edut0052jf4a" path="res://character_manager/camera_manager.gd" id="2_kea82"]
+
+[node name="CharacterManager" type="Node2D"]
+script = ExtResource("1_4qns8")
+desaturation_shader = ExtResource("2_fqo24")
+
+[node name="CameraManager" type="Node2D" parent="."]
+script = ExtResource("2_kea82")
+
+[node name="SceneCamera" type="Camera2D" parent="CameraManager"]
+drag_horizontal_offset = 0.1
+drag_vertical_offset = 0.1
