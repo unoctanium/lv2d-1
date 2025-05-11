@@ -106,6 +106,9 @@ func _input(_event):
 		
 		if input_action1 and can_glide:
 			shield_manager.toggle_shield()
+			
+		if input_action2 and can_shoot:
+			weapon_manger.shoot_arrow(facing_direction)
 
 	else:
 		input_action1 = false

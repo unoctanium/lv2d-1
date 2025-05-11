@@ -23,6 +23,11 @@ window/size/always_on_top=true
 window/stretch/scale_mode="integer"
 window/handheld/orientation=6
 
+[global_group]
+
+player=""
+platform=""
+
 [input]
 
 player_left={
@@ -137,24 +142,31 @@ renderer/rendering_method="mobile"
 
 project/editorState=[{
 "column": 0,
-"line": 0,
-"path": "res://character_manager/characters/character_state_machine/climb_state.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 99,
+"line": 110,
 "path": "res://character_manager/characters/character_base.gd",
 "type": "file"
 }, {
-"column": 0,
-"current": true,
-"line": 92,
+"column": 46,
+"line": 88,
 "path": "res://character_manager/character_manager.gd",
+"type": "file"
+}, {
+"column": 73,
+"line": 14,
+"path": "res://character_manager/characters/weapon_manager.gd",
+"type": "file"
+}, {
+"column": 47,
+"current": true,
+"line": 11,
+"path": "res://projectile_manager/projectiles/projectile_arrow.gd",
 "type": "file"
 }]
 project/breakpoints={
 "res://character_manager/camera_manager.gd": PackedInt32Array(),
 "res://character_manager/character_manager.gd": PackedInt32Array(),
 "res://character_manager/characters/character_base.gd": PackedInt32Array(),
-"res://character_manager/characters/shield_manager.gd": PackedInt32Array()
+"res://character_manager/characters/shield_manager.gd": PackedInt32Array(),
+"res://character_manager/characters/weapon_manager.gd": PackedInt32Array(),
+"res://projectile_manager/projectile_manager.gd": PackedInt32Array()
 }
