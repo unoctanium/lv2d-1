@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://bgccai84convy"]
+[gd_scene load_steps=6 format=4 uid="uid://bgccai84convy"]
 
 [ext_resource type="PackedScene" uid="uid://rqx8h0nv04vj" path="res://character_manager/character_manager.tscn" id="3_aqk2v"]
 [ext_resource type="TileSet" uid="uid://oof5x54q3h8j" path="res://tilesets/tileset_1.tres" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://5kcfaq5d83ed" path="res://character_manager/characters/character_template.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bsoijk54gd6jw" path="res://enemy_manager/enemy_manager.tscn" id="4_dwbse"]
+[ext_resource type="PackedScene" uid="uid://clc7q5oao6ps" path="res://enemy_manager/enemies/enemy_template.tscn" id="5_036b0"]
 
 [node name="World" type="Node2D"]
 
@@ -32,3 +34,8 @@ gizmo_extents = 120.0
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["platform"]]
 tile_map_data = PackedByteArray("AAAJAAkAAQACAAUAAAAKAAkAAQACAAUAAAALAAkAAQACAAUAAAAMAAkAAQACAAUAAAANAAkAAQACAAUAAAACAAUAAQACAAUAAAALAAUAAQACAAUAAAABAAUAAQACAAUAAAAAAAUAAQACAAUAAAD//wUAAQACAAUAAAD+/wUAAQACAAUAAAD9/wUAAQACAAUAAAD8/wUAAQACAAUAAAD7/wUAAQACAAUAAAD6/wUAAQACAAUAAAAEAAUAAQACAAUAAAAKAAUAAQACAAUAAAAFAAUAAQACAAUAAAAHAAUAAQACAAUAAAAGAAUAAQACAAUAAAADAAUAAQACAAUAAAAIAAUAAQACAAUAAAAJAAUAAQACAAUAAAAMAAUAAQADAAIAAAAMAAYAAQADAAIAAAAMAAcAAQADAAIAAAAMAAgAAQADAAIAAAAIAAoAAQACAAUAAAD7/wEAAQACAAUAAAD8/wEAAQACAAUAAAD9/wEAAQACAAUAAAD+/wEAAQACAAUAAAD//wEAAQACAAUAAAAAAAEAAQADAAIAAAAAAAIAAQADAAIAAAAAAAMAAQADAAIAAAAAAAQAAQADAAIAAAABAAQAAQADAAIAAAAJAAQAAQADAAIAAAAJAAMAAQADAAIAAAAJAAIAAQADAAIAAAAJAAEAAQADAAIAAAAJAAAAAQADAAIAAAAJAP//AQADAAIAAAAJAP7/AQADAAIAAAAHAAoAAQACAAUAAAAGAAoAAQACAAUAAAAFAAoAAQACAAUAAAADAAoAAQACAAUAAAACAAoAAQACAAUAAAAEAAoAAQACAAUAAAABAAoAAQACAAUAAAAAAAoAAQACAAUAAAD//woAAQACAAUAAAD+/wsAAQACAAUAAAD9/wsAAQACAAUAAAD7/wsAAQACAAUAAAD6/wsAAQACAAUAAAD5/wsAAQACAAUAAAD4/wsAAQACAAUAAAD+/wkAAQADAAIAAAD+/woAAQADAAIAAAAIAAkAAQADAAIAAAAOAAkAAQACAAUAAAAPAAkAAQACAAUAAAAQAAkAAQACAAUAAAARAAkAAQACAAUAAAASAAkAAQACAAUAAAD8/wsAAQACAAUAAAA=")
 tile_set = ExtResource("4_036b0")
+
+[node name="EnemyManager" parent="." instance=ExtResource("4_dwbse")]
+
+[node name="EnemyTemplate" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(448, 1216)

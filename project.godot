@@ -27,6 +27,7 @@ window/handheld/orientation=6
 
 player=""
 platform=""
+enemy=""
 
 [input]
 
@@ -146,20 +147,30 @@ project/editorState=[{
 "path": "res://character_manager/characters/character_base.gd",
 "type": "file"
 }, {
-"column": 46,
+"column": 0,
 "line": 88,
 "path": "res://character_manager/character_manager.gd",
 "type": "file"
 }, {
-"column": 73,
+"column": 0,
 "line": 14,
 "path": "res://character_manager/characters/weapon_manager.gd",
 "type": "file"
 }, {
-"column": 47,
-"current": true,
+"column": 0,
 "line": 11,
 "path": "res://projectile_manager/projectiles/projectile_arrow.gd",
+"type": "file"
+}, {
+"column": 51,
+"line": 3,
+"path": "res://enemy_manager/enemy_manager.gd",
+"type": "file"
+}, {
+"column": 23,
+"current": true,
+"line": 0,
+"path": "res://enemy_manager/enemies/enemy_base.gd",
 "type": "file"
 }]
 project/breakpoints={
