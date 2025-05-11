@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://clc7q5oao6ps"]
+[gd_scene load_steps=7 format=3 uid="uid://clc7q5oao6ps"]
 
 [ext_resource type="Script" uid="uid://4waqbcobuv4w" path="res://enemy_manager/enemies/enemy_base.gd" id="1_etlf2"]
 [ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="2_j6h0d"]
@@ -21,9 +21,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6h0d"]
+size = Vector2(80, 128)
+
 [node name="EnemyTemplate" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 256
-collision_mask = 232
+collision_mask = 104
 script = ExtResource("1_etlf2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,3 +35,11 @@ shape = SubResource("RectangleShape2D_riobi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6db5k")
 metadata/_edit_lock_ = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 1152
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_j6h0d")

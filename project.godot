@@ -142,19 +142,19 @@ renderer/rendering_method="mobile"
 [xogot]
 
 project/editorState=[{
-"column": 44,
-"line": 119,
+"column": 46,
+"line": 115,
 "path": "res://character_manager/characters/character_base.gd",
 "type": "file"
 }, {
-"column": 36,
-"current": true,
+"column": 0,
 "line": 77,
 "path": "res://character_manager/character_manager.gd",
 "type": "file"
 }, {
-"column": 53,
-"line": 60,
+"column": 73,
+"current": true,
+"line": 102,
 "path": "res://character_manager/characters/weapon_manager.gd",
 "type": "file"
 }, {
@@ -168,7 +168,7 @@ project/editorState=[{
 "path": "res://enemy_manager/enemies/enemy_base.gd",
 "type": "file"
 }, {
-"column": 24,
+"column": 0,
 "line": 54,
 "path": "res://character_manager/characters/shield_manager.gd",
 "type": "file"

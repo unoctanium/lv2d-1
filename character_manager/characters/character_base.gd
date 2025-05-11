@@ -110,14 +110,14 @@ func _input(_event):
 		input_action1 = Input.is_action_just_pressed("player_action_1")
 		input_action2 = Input.is_action_just_pressed("player_action_2")
 		
-		if input_action1 and can_glide:
+		if input_action2 and can_glide:
 			shield_manager.toggle_shield()
 			
-		if input_action2 and can_shoot:
-			weapon_manger.shoot_arrow(facing_direction)
+		if input_action2 and (can_shoot or can_hit):
+			weapon_manger.toggle_weapon()
 			
 		if input_action1 and can_hit:
-			weapon_manger.hit_sword(facing_direction)
+			weapon_manger.use_weapon(facing_direction)
 
 	else:
 		input_action1 = false
