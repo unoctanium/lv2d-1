@@ -142,35 +142,35 @@ renderer/rendering_method="mobile"
 [xogot]
 
 project/editorState=[{
-"column": 0,
-"line": 110,
+"column": 44,
+"line": 119,
 "path": "res://character_manager/characters/character_base.gd",
 "type": "file"
 }, {
-"column": 0,
-"line": 88,
+"column": 36,
+"current": true,
+"line": 77,
 "path": "res://character_manager/character_manager.gd",
 "type": "file"
 }, {
-"column": 0,
-"line": 14,
+"column": 53,
+"line": 60,
 "path": "res://character_manager/characters/weapon_manager.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 11,
-"path": "res://projectile_manager/projectiles/projectile_arrow.gd",
-"type": "file"
-}, {
-"column": 51,
 "line": 3,
 "path": "res://enemy_manager/enemy_manager.gd",
 "type": "file"
 }, {
-"column": 23,
-"current": true,
+"column": 0,
 "line": 0,
 "path": "res://enemy_manager/enemies/enemy_base.gd",
+"type": "file"
+}, {
+"column": 24,
+"line": 54,
+"path": "res://character_manager/characters/shield_manager.gd",
 "type": "file"
 }]
 project/breakpoints={

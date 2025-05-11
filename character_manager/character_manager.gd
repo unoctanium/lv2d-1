@@ -73,6 +73,9 @@ func _ready():
 	_character = spawn_character(scene_fighter, spawn_fighter, 1)
 	_character.can_hit = true
 	_character.can_shoot = true
+	_character.weapon_manger.has_hit = true
+	_character.weapon_manger.has_shoot = true
+	_character.weapon_manger.mount_hit()
 	_character.set_collision_layer_value(1, false)
 	_character.set_collision_layer_value(2, true)
 	_character.set_collision_layer_value(3, false)

@@ -73,6 +73,12 @@ func _ready():
 	
 	facing_direction = 1 if initial_facing_right else -1
 	
+	# initialize the weapon manager
+	$WeaponManager.face_direction(facing_direction)
+	
+	# initialize the shield manager
+	$ShieldManager.face_direction(facing_direction)
+	
 	
 func _physics_process(delta):
 	
@@ -109,6 +115,9 @@ func _input(_event):
 			
 		if input_action2 and can_shoot:
 			weapon_manger.shoot_arrow(facing_direction)
+			
+		if input_action1 and can_hit:
+			weapon_manger.hit_sword(facing_direction)
 
 	else:
 		input_action1 = false
@@ -187,6 +196,8 @@ func update_sprite_flip():
 		
 		if shield_manager.has_shield:
 			shield_manager.face_direction(facing_direction)
+		if weapon_manger.has_hit or weapon_manger.has_shoot:
+			weapon_manger.face_direction(facing_direction)
 		
 
 		

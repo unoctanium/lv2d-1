@@ -8,7 +8,7 @@ class_name shield_mnager
 @onready var top_collision = $GlideShield/CollisionShape2D
 
 @export var has_shield: bool = false
-var is_shield_top: bool = false
+var _is_shield_top: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,10 +21,10 @@ func mount_shield(mount: bool) -> void:
 		switch_shield_front()
 	else:
 		_activate_front(false)
-		_activate_front(false)
+		_activate_top(false)
 
 func toggle_shield():
-	if is_shield_top:
+	if _is_shield_top:
 		switch_shield_front()
 	else:
 		switch_shield_top()
@@ -32,14 +32,14 @@ func toggle_shield():
 func switch_shield_front():
 	if not has_shield:
 		return
-	is_shield_top = false
+	_is_shield_top = false
 	_activate_top(false)
 	_activate_front(true)
 	
 func switch_shield_top():
 	if not has_shield:
 		return
-	is_shield_top = true
+	_is_shield_top = true
 	_activate_front(false)
 	_activate_top(true)
 	
@@ -52,7 +52,7 @@ func _activate_top(active: bool):
 	$GlideShield/CollisionShape2D.disabled = not active
 	
 func can_glide() -> bool:
-	return has_shield and is_shield_top
+	return has_shield and _is_shield_top
 	
 func face_direction(direction: int):
 	front_sprite.flip_h = direction < 0
