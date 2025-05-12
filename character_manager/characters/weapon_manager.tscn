@@ -20,7 +20,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dm8v"]
-size = Vector2(140, 47)
+size = Vector2(119, 47)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8dm8v"]
 atlas = ExtResource("2_cxmr5")
@@ -52,7 +52,7 @@ rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_8dm8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponHit"]
-position = Vector2(70, 0)
+position = Vector2(80.5, 0)
 shape = SubResource("RectangleShape2D_8dm8v")
 
 [node name="WeaponShoot" type="Node2D" parent="."]

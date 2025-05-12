@@ -24,6 +24,9 @@ func physics_update(_delta):
 	elif character.can_dash and character.input_action2:
 		character.state_machine.switch_state("DashState")
 		
+	elif character.can_crawl and character.input_action1:
+		character.state_machine.switch_state("CrawlState")
+		 		
 	elif character.input_dir.x != 0:
 		character.state_machine.switch_state("WalkState")
 

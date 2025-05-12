@@ -6,6 +6,11 @@ class_name WeaponManager
 @export var has_hit = false
 @export var has_shoot = false
 
+@export var hit_top_deg = 55 # -90 + 55 = -35
+@export var hit_btm_deg = 145
+
+
+
 var _is_mounted_hit = false
 var _hit_ready = true
 
@@ -60,14 +65,19 @@ func toggle_weapon():
 	pass
 	
 func face_direction(direction: int):
-	weapon_hit_anim.flip_v = direction < 0
-	weapon_hit_anim.offset.x = -abs(weapon_hit_anim.offset.x) * direction
+	#weapon_hit_anim.flip_v = direction < 0
+	#weapon_hit_anim.offset.x = -abs(weapon_hit_anim.offset.x) * direction
 	weapon_shoot_anim.flip_h = direction < 0
 	weapon_shoot_anim.offset.x = -abs(weapon_shoot_anim.offset.x) * direction
-	weapon_hit_anim.position.x = abs(weapon_hit_anim.position.x) *direction
+	#weapon_hit_anim.position.x = abs(weapon_hit_anim.position.x) *direction
 	weapon_shoot_anim.position.x = abs(weapon_shoot_anim.position.x) *direction
-	weapon_hit_collider.position.x = abs(weapon_hit_collider.position.x) *direction
-
+	#weapon_hit_collider.position.x = abs(weapon_hit_collider.position.x) *direction
+	#var newbase = -180 if direction < 0 else 0
+	#weapon_hit.rotation_degrees = -35 * direction
+	#var hit_delta = 90 + weapon_hit.rotation_degrees
+	#weapon_hit.rotation_degrees = weapon_hit.rotation_degrees + hit_delta * direction 
+	weapon_hit.rotation_degrees = -90.0 + hit_top_deg * (-1 if direction < 0 else 1)
+	
 func use_weapon(horizontal_dir: int):
 	if _is_mounted_hit:
 		hit_sword(horizontal_dir)
@@ -99,9 +109,10 @@ func hit_sword(horizontal_dir: int): # 1 for right, -1 left
 	weapon_hit.monitoring = true
 
 	var tween = create_tween()
-	tween.tween_property(weapon_hit, "rotation_degrees", -30 * horizontal_dir, 0.1)
-	tween.tween_property(weapon_hit, "rotation_degrees", 30 * horizontal_dir, 0.2)
-	tween.tween_property(weapon_hit, "rotation_degrees", 0, 0.1)
+	#tween.tween_property(weapon_hit, "rotation_degrees", -30 * horizontal_dir, 0.1)
+	tween.tween_property(weapon_hit, "rotation_degrees", -90.0 + hit_btm_deg * (-1 if horizontal_dir < 0 else 1) , 0.15)
+	tween.tween_property(weapon_hit, "rotation_degrees", -90.0 + hit_top_deg * (-1 if horizontal_dir < 0 else 1)
+	, 0.01)
 	tween.tween_callback(_on_sword_swing_complete)
 	
 func _on_weapon_hit_area_entered(area: Area2D) -> void:

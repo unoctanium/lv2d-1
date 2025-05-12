@@ -82,10 +82,11 @@ func _ready():
 	
 	
 	_character = spawn_character(scene_tank, spawn_tank, 2)
-	_character.can_shield = true
+	_character.can_crawl = true
 	_character.can_glide = true
 	_character.shield_manager.has_shield = true
 	_character.shield_manager.mount_shield(true)
+	_character.set_crawling(false)
 	_character.set_collision_layer_value(1, false)
 	_character.set_collision_layer_value(2, false)
 	_character.set_collision_layer_value(3, true)

@@ -142,36 +142,39 @@ renderer/rendering_method="mobile"
 [xogot]
 
 project/editorState=[{
-"column": 46,
-"line": 115,
+"column": 1,
+"current": true,
+"line": 187,
 "path": "res://character_manager/characters/character_base.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 77,
-"path": "res://character_manager/character_manager.gd",
-"type": "file"
-}, {
-"column": 73,
-"current": true,
-"line": 102,
-"path": "res://character_manager/characters/weapon_manager.gd",
+"line": 43,
+"path": "res://character_manager/characters/character_state_machine/crawl_state.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 3,
-"path": "res://enemy_manager/enemy_manager.gd",
+"line": 89,
+"path": "res://character_manager/character_manager.gd",
 "type": "file"
 }, {
 "column": 0,
 "line": 0,
-"path": "res://enemy_manager/enemies/enemy_base.gd",
+"path": "res://character_manager/characters/shield_manager.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 54,
-"path": "res://character_manager/characters/shield_manager.gd",
+"line": 0,
+"path": "res://character_manager/characters/character_state_machine/walk_state.gd",
 "type": "file"
+}, {
+"column": 28,
+"line": 7,
+"path": "res://character_manager/characters/character_state_machine/idle_state.gd",
+"type": "file"
+}, {
+"title": "AnimatedSprite2D",
+"type": "doc"
 }]
 project/breakpoints={
 "res://character_manager/camera_manager.gd": PackedInt32Array(),

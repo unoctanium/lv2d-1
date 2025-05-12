@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://boyv7f5mhv6a1"]
+[gd_scene load_steps=12 format=3 uid="uid://boyv7f5mhv6a1"]
 
 [ext_resource type="Script" uid="uid://cgwdwdy6w18qy" path="res://character_manager/characters/character_state_machine/character_state_machine.gd" id="1_51eua"]
 [ext_resource type="Script" uid="uid://4nltwbbud3pt" path="res://character_manager/characters/character_state_machine/spawn_state.gd" id="2_d06h3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dolr8qlh8hqnk" path="res://character_manager/characters/character_state_machine/climb_state.gd" id="8_iapw4"]
 [ext_resource type="Script" uid="uid://cl1u7805v0bk" path="res://character_manager/characters/character_state_machine/glide_state.gd" id="9_mv3bi"]
 [ext_resource type="Script" uid="uid://c3xa8o71gbfo0" path="res://character_manager/characters/character_state_machine/die_state.gd" id="10_dhalj"]
+[ext_resource type="Script" uid="uid://c8jc8x7eb0oo2" path="res://character_manager/characters/character_state_machine/crawl_state.gd" id="11_4ojfi"]
 
 [node name="CharacterStateMachine" type="Node2D"]
 script = ExtResource("1_51eua")
@@ -40,3 +41,6 @@ script = ExtResource("9_mv3bi")
 
 [node name="DieState" type="Node" parent="."]
 script = ExtResource("10_dhalj")
+
+[node name="CrawlState" type="Node" parent="."]
+script = ExtResource("11_4ojfi")

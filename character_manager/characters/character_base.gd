@@ -19,17 +19,27 @@ class_name CharacterBase
 @export var jump_force: float = -900.0
 @export var air_speed = 400.0
 
-# Abilities
-@export var can_jump: bool = false
-@export var can_dash: bool = false
-@export var can_glide: bool = false
-@export var can_shield: bool = false
+@export var crawl_speed = 400.0
+
+### OPDO TODO
+# Abilities ODO TODO
+# jump + dash: is_jumper 
+# same for is_fiighter
+# and is_tank
+# and that is RADIO!!!!
+
+@export var can_jump: bool = false 
+@export var can_dash: bool = false 
+@export var can_glide: bool = false 
+@export var can_crawl: bool = false
 @export var can_hit: bool = false
 @export var can_shoot: bool = false
 
 #var velocity: Vector3 = Vector3.ZERO
 var is_active: bool = false
-var facing_direction: int = 0
+
+### ODO TODO
+var facing_direction: int = 0 # right = 1 , left = 0
 
 # current values from the stick (x=l/r, y=u/d)
 var input_dir: Vector2 = Vector2(0.0, 0.0)
@@ -49,6 +59,10 @@ var input_action2: bool = false
 # WeaponManager
 @onready var weapon_manger = $WeaponManager
 
+# Crawling Management
+@onready var _collision_standing = $CollisionStanding 
+@onready var _collision_crawling = $CollisionCrawling
+
 #tilemap data
 #var tilemap: TileMapLayer 
 
@@ -60,6 +74,12 @@ var desaturation_material: ShaderMaterial
 
 # Debug label
 @onready var label = $Label
+
+
+### THIS is for AnimatedSprite2D
+### ODO TODO: no deed for this if we want AnimationPlayer
+#var available_animations: Array[String] = []
+
 
 func _ready():
 	# initialize the state machine
@@ -79,6 +99,16 @@ func _ready():
 	# initialize the shield manager
 	$ShieldManager.face_direction(facing_direction)
 	
+	# initialize crawling: disable and hide crawl state colliders
+	_collision_crawling.disabled = true
+	_collision_crawling.visible = false
+
+	#THIS is Animated Sprite2D code
+	# Ne need if we need AnimationPlayer
+	# Populate available animations from the sprite frames resource
+	#if animated_sprite.frames:
+	#	available_animations = animated_sprite.frames.get_animation_names()
+
 	
 func _physics_process(delta):
 	
@@ -138,9 +168,66 @@ func get_user_input():
 		facing_direction = 1
 	if input_dir.x < 0:
 		facing_direction = -1
-	
 	update_sprite_flip()
 
+### THIS is for AnimatedSprite2D
+### ODO TODO: update if we want AnimationPlayer
+
+#var available_animations: Array[String] = []
+
+#func _ready():
+	# Populate available animations from the sprite frames resource
+	#if animated_sprite.frames:
+		#available_animations = animated_sprite.frames.get_animation_names()
+
+#func has_animation(name: String) -> bool:
+#	return name in available_animations
+
+#func play_animation(name: String) -> void:
+#	#if has_animation(name):
+#	animated_sprite.play(name)
+
+
+
+"""
+func play_animation(name: String) -> void:
+	if animated_sprite.has_animation(name):
+		animated_sprite.play(name)
+
+func has_animation(name: String) -> bool:
+	return animated_sprite.has_animation(name)
+"""
+
+
+
+func set_crawling(crawling: bool) -> void:
+	_collision_standing.disabled = crawling
+	_collision_standing.visible = not crawling
+	_collision_crawling.disabled = not crawling
+	_collision_crawling.visible = crawling
+	shield_manager.mount_shield(not crawling)
+	#if character.has_animation("crawl"):
+	if crawling:
+		animated_sprite.play("crawl")
+	else:
+		animated_sprite.play("idle")
+	
+
+
+
+func can_stand() -> bool:
+	var shape = RectangleShape2D.new()
+	shape.extents = Vector2(40, 128)  # Match your standing shape
+	var position = global_position - Vector2(0, 40)  # Above the crawling body
+
+	var params = PhysicsShapeQueryParameters2D.new()
+	params.shape = shape
+	params.transform = Transform2D(0, position)
+	params.collision_mask = 4  # Adjust to detect environment (platforms etc.)
+
+	var result = get_world_2d().direct_space_state.intersect_shape(params)
+	print(result)
+	return result.is_empty()
 
 
 func is_on_ladder() -> bool:
