@@ -43,4 +43,3 @@ func physics_update(delta):
 func handle_input(event):
 	if current_state:
 		current_state.handle_input(event)
-

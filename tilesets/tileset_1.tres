@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://oof5x54q3h8j"]
 
-[ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="1_7a30b"]
+[ext_resource type="Texture2D" uid="uid://c3gqx5n8f122o" path="res://sprites/spritesheet_retina.png" id="1_7a30b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7a30b"]
 texture = ExtResource("1_7a30b")
@@ -128,8 +128,8 @@ texture_region_size = Vector2i(128, 128)
 
 [resource]
 tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 8
+physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
-physics_layer_1/collision_layer = 16
+physics_layer_1/collision_layer = 8
 physics_layer_1/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_7a30b")

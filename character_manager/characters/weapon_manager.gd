@@ -9,8 +9,6 @@ class_name WeaponManager
 @export var hit_top_deg = 55 # -90 + 55 = -35
 @export var hit_btm_deg = 145
 
-
-
 var _is_mounted_hit = false
 var _hit_ready = true
 
@@ -93,6 +91,7 @@ func shoot_arrow(horizontal_dir: int): # 1 for right, -1 left
 		offset.x = offset.x * horizontal_dir
 		arrow.global_position = global_position + offset
 		arrow.direction = Vector2.LEFT if horizontal_dir < 0 else Vector2.RIGHT
+		arrow.source = "player"
 		get_tree().current_scene.add_child(arrow)
 		
 func hit_sword(horizontal_dir: int): # 1 for right, -1 left
@@ -116,10 +115,10 @@ func hit_sword(horizontal_dir: int): # 1 for right, -1 left
 	tween.tween_callback(_on_sword_swing_complete)
 	
 func _on_weapon_hit_area_entered(area: Area2D) -> void:
-	print("hit")
 	if area.is_in_group("enemy"):
-		print("Enemy hit!")
-		# Optional: area.get_parent().take_damage()
+		if area.get_parent().has_method("take_damage"):
+			area.get_parent().take_damage(10)
+		#print("Enemy hit!")
 
 func _on_sword_swing_complete() -> void:
 	#weapon_hit.visible = false

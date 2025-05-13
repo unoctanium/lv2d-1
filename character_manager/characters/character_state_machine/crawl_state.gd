@@ -15,6 +15,12 @@ func exit():
 
 func physics_update(delta):
 	
+		# Try to stand up if the player releases the crawl input
+	if character.input_action1 and allow_exit and character.can_stand():
+		character.input_action1 = false
+		character.state_machine.switch_state("IdleState")
+		return
+	
 	if not character.input_action1:
 		allow_exit = true
 	
@@ -24,13 +30,16 @@ func physics_update(delta):
 		
 	elif not character.is_grounded():
 		character.state_machine.switch_state("FallState")
+		return
 		
 	elif character.is_on_ladder() and character.input_dir.y != 0:
 		character.state_machine.switch_state("ClimbState")
+		return
 		
 	elif character.is_on_ladder_top() and character.input_dir.y > 0:
 		character.state_machine.switch_state("ClimbState")
-
+		return
+		
 	elif character.input_dir.x != 0:
 		character.velocity.x = character.input_dir.x * character.crawl_speed
 		character.velocity.y = 0
@@ -39,6 +48,3 @@ func physics_update(delta):
 		character.velocity.x = 0
 		character.velocity.y = 0
 		
-	# Try to stand up if the player releases the crawl input
-	if character.input_action1 and allow_exit:# and character.can_stand():
-		character.state_machine.switch_state("IdleState")

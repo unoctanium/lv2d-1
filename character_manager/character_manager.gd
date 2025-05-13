@@ -66,9 +66,12 @@ func _ready():
 	_character = spawn_character(scene_jumper, spawn_jumper, 0)
 	_character.can_jump = true
 	_character.can_dash = true
-	_character.set_collision_layer_value(1, true)
-	_character.set_collision_layer_value(2, false)
-	_character.set_collision_layer_value(3, false)
+	#_character.set_collision_layer_value(1, true)
+	#_character.set_collision_layer_value(2, false)
+	#_character.set_collision_layer_value(3, false)
+	_character.set_collision_mask_value(16, true) # detect climbable walls
+	_character.set_collision_mask_value(17, true) # detect ropes
+	
 	
 	_character = spawn_character(scene_fighter, spawn_fighter, 1)
 	_character.can_hit = true
@@ -76,9 +79,9 @@ func _ready():
 	_character.weapon_manger.has_hit = true
 	_character.weapon_manger.has_shoot = true
 	_character.weapon_manger.mount_hit()
-	_character.set_collision_layer_value(1, false)
-	_character.set_collision_layer_value(2, true)
-	_character.set_collision_layer_value(3, false)
+	#_character.set_collision_layer_value(1, false)
+	#_character.set_collision_layer_value(2, true)
+	#_character.set_collision_layer_value(3, false)
 	
 	
 	_character = spawn_character(scene_tank, spawn_tank, 2)
@@ -87,10 +90,12 @@ func _ready():
 	_character.shield_manager.has_shield = true
 	_character.shield_manager.mount_shield(true)
 	_character.set_crawling(false)
-	_character.set_collision_layer_value(1, false)
-	_character.set_collision_layer_value(2, false)
-	_character.set_collision_layer_value(3, true)
-	_character.set_collision_mask_value(7, false)
+	#_character.set_collision_layer_value(1, false)
+	#_character.set_collision_layer_value(2, false)
+	#_character.set_collision_layer_value(3, true)
+	_character.set_collision_mask_value(23, false) # avoid detecting own top-shield
+	_character.set_collision_mask_value(16, true) # detect movable blocks
+	
 	
 	
 	

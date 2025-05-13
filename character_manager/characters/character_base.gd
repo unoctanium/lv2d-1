@@ -62,6 +62,10 @@ var input_action2: bool = false
 # Crawling Management
 @onready var _collision_standing = $CollisionStanding 
 @onready var _collision_crawling = $CollisionCrawling
+@onready var _hitbox_standing = $HitboxStanding/CollisionShape2D 
+@onready var _hitbox_crawling = $HitboxCrawling/CollisionShape2D
+@onready var _ceiling_check_area = $CeilingCheck
+
 
 #tilemap data
 #var tilemap: TileMapLayer 
@@ -205,6 +209,10 @@ func set_crawling(crawling: bool) -> void:
 	_collision_standing.visible = not crawling
 	_collision_crawling.disabled = not crawling
 	_collision_crawling.visible = crawling
+	_hitbox_standing.disabled = crawling
+	_hitbox_standing.visible = not crawling
+	_hitbox_crawling.disabled = not crawling
+	_hitbox_crawling.visible = crawling
 	shield_manager.mount_shield(not crawling)
 	#if character.has_animation("crawl"):
 	if crawling:
@@ -213,8 +221,10 @@ func set_crawling(crawling: bool) -> void:
 		animated_sprite.play("idle")
 	
 
+func can_stand() -> bool:
+	return _ceiling_check_area.get_overlapping_bodies().is_empty()
 
-
+"""
 func can_stand() -> bool:
 	var shape = RectangleShape2D.new()
 	shape.extents = Vector2(40, 128)  # Match your standing shape
@@ -228,7 +238,7 @@ func can_stand() -> bool:
 	var result = get_world_2d().direct_space_state.intersect_shape(params)
 	print(result)
 	return result.is_empty()
-
+"""
 
 func is_on_ladder() -> bool:
 	return ray_ladder_front.is_colliding()
@@ -286,5 +296,7 @@ func update_sprite_flip():
 		if weapon_manger.has_hit or weapon_manger.has_shoot:
 			weapon_manger.face_direction(facing_direction)
 		
-
+func take_damage(amount: int) -> void:
+	print("Player took damage: ", amount)
+	# Add health logic here
 		

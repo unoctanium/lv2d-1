@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c74tix6fhe841" path="res://character_manager/characters/weapon_manager.gd" id="1_shgbi"]
 [ext_resource type="PackedScene" uid="uid://bsmqt4uflx50g" path="res://projectile_manager/projectiles/projectile_arrow.tscn" id="2_8dm8v"]
-[ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="2_cxmr5"]
+[ext_resource type="Texture2D" uid="uid://c3gqx5n8f122o" path="res://sprites/spritesheet_retina.png" id="2_cxmr5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxmr5"]
 atlas = ExtResource("2_cxmr5")
@@ -38,13 +38,12 @@ animations = [{
 }]
 
 [node name="WeaponManager" type="Node2D"]
-position = Vector2(0, -64)
 script = ExtResource("1_shgbi")
 arrow_scene = ExtResource("2_8dm8v")
 
 [node name="WeaponHit" type="Area2D" parent="."]
-collision_layer = 1024
-collision_mask = 256
+collision_layer = 64
+collision_mask = 128
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WeaponHit"]
 position = Vector2(86, 0)
