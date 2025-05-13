@@ -142,7 +142,7 @@ renderer/rendering_method="mobile"
 [xogot]
 
 project/editorState=[{
-"column": 1,
+"column": 0,
 "current": true,
 "line": 187,
 "path": "res://character_manager/characters/character_base.gd",
@@ -168,7 +168,7 @@ project/editorState=[{
 "path": "res://character_manager/characters/character_state_machine/walk_state.gd",
 "type": "file"
 }, {
-"column": 28,
+"column": 0,
 "line": 7,
 "path": "res://character_manager/characters/character_state_machine/idle_state.gd",
 "type": "file"

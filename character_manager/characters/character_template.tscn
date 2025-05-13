@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5kcfaq5d83ed"]
+[gd_scene load_steps=11 format=3 uid="uid://5kcfaq5d83ed"]
 
 [ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="1_0q85a"]
 [ext_resource type="Script" uid="uid://dtsxr0wa8jsaf" path="res://character_manager/characters/character_base.gd" id="1_eu50f"]
@@ -35,6 +35,9 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isgfy"]
+size = Vector2(74, 122)
 
 [node name="CharacterTemplate" type="CharacterBody2D" groups=["player"]]
 z_index = 10
@@ -87,3 +90,11 @@ metadata/_edit_lock_ = true
 
 [node name="ShieldManager" parent="." instance=ExtResource("4_aqj72")]
 metadata/_edit_lock_ = true
+
+[node name="HitboxStanding" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxStanding" groups=["player"]]
+position = Vector2(0, -65)
+shape = SubResource("RectangleShape2D_isgfy")
