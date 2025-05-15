@@ -4,6 +4,8 @@ class_name ProjectileArrow
 @export_enum("player", "enemy") var source: String = "player"
 @onready var self_destruct_timer = $SelfDestructTimer
 @export var speed := 600.0
+@ecport var damage := 20
+
 var direction := Vector2.RIGHT  # Or LEFT depending on where the player is facing
 
 
@@ -41,11 +43,12 @@ func _process(delta):
 func _on_area_entered(area: Area2D) -> void:
 	if source == "player" and area.is_in_group("enemy"):
 		if area.get_parent().has_method("take_damage"):
-			area.get_parent().take_damage(10)
+			area.get_parent().take_damage(damage)
 		queue_free()
 	elif source == "enemy" and area.is_in_group("player"):
+		print(area.name)
 		if area.get_parent().has_method("take_damage"):
-			area.get_parent().take_damage(10)
+			area.get_parent().take_damage(damage)
 		queue_free()
 
 

@@ -76,8 +76,14 @@ var input_action2: bool = false
 var desaturation_material: ShaderMaterial
 @onready var tween: Tween = get_tree().create_tween()
 
+
+# Health bar
+@onready var health_manager = $HealthManager
+
+
 # Debug label
 @onready var label = $Label
+
 
 
 ### THIS is for AnimatedSprite2D
@@ -106,12 +112,16 @@ func _ready():
 	# initialize crawling: disable and hide crawl state colliders
 	_collision_crawling.disabled = true
 	_collision_crawling.visible = false
+	_hitbox_crawling.disabled = true
+	_hitbox_crawling.visible = false
 
 	#THIS is Animated Sprite2D code
 	# Ne need if we need AnimationPlayer
 	# Populate available animations from the sprite frames resource
 	#if animated_sprite.frames:
 	#	available_animations = animated_sprite.frames.get_animation_names()
+	
+	health_manager.take_full_heal()
 
 	
 func _physics_process(delta):
@@ -298,5 +308,11 @@ func update_sprite_flip():
 		
 func take_damage(amount: int) -> void:
 	print("Player took damage: ", amount)
+	health_manager.take_damage(amount)
 	# Add health logic here
 		
+
+func take_heal(amount: int) -> void:
+	print("Player took heal: ", amount)
+	health_manager.take_heal(amount)
+	

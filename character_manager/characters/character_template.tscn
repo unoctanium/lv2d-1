@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://5kcfaq5d83ed"]
+[gd_scene load_steps=17 format=3 uid="uid://5kcfaq5d83ed"]
 
 [ext_resource type="Texture2D" uid="uid://c3gqx5n8f122o" path="res://sprites/spritesheet_retina.png" id="1_0q85a"]
 [ext_resource type="Script" uid="uid://dtsxr0wa8jsaf" path="res://character_manager/characters/character_base.gd" id="1_eu50f"]
 [ext_resource type="PackedScene" uid="uid://boyv7f5mhv6a1" path="res://character_manager/characters/character_state_machine/character_state_machine.tscn" id="3_0kt0h"]
 [ext_resource type="PackedScene" uid="uid://c8pwesl0l4fdr" path="res://character_manager/characters/shield_manager.tscn" id="4_aqj72"]
 [ext_resource type="PackedScene" uid="uid://u4wq3o8q7abb" path="res://character_manager/characters/weapon_manager.tscn" id="4_isgfy"]
+[ext_resource type="Script" uid="uid://dw2gy35yxnckg" path="res://character_manager/characters/health_manager.gd" id="6_l1eee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v3gq"]
 size = Vector2(80, 123)
@@ -48,6 +49,12 @@ size = Vector2(77, 65)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyl5o"]
 size = Vector2(81, 123)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isgfy"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1eee"]
+bg_color = Color(0.4, 0.572549, 0.239216, 1)
+
 [node name="CharacterTemplate" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 collision_mask = 4200452
@@ -74,14 +81,13 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = -40.0
-offset_top = -172.0
-offset_right = 47.0
-offset_bottom = -115.0
+offset_left = -43.0
+offset_top = -192.0
+offset_right = 44.0
+offset_bottom = -169.0
 text = "Label"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="DownCast" type="RayCast2D" parent="."]
 position = Vector2(0, -24)
@@ -131,3 +137,23 @@ metadata/_edit_lock_ = true
 position = Vector2(0, -65.5)
 shape = SubResource("RectangleShape2D_qyl5o")
 metadata/_edit_lock_ = true
+
+[node name="HealthManager" type="Node2D" parent="."]
+position = Vector2(-42, -160)
+script = ExtResource("6_l1eee")
+
+[node name="HealthBar" type="ProgressBar" parent="HealthManager"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 84.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_isgfy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l1eee")
+step = 10.0
+value = 100.0
+show_percentage = false
