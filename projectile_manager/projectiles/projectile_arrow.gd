@@ -4,7 +4,7 @@ class_name ProjectileArrow
 @export_enum("player", "enemy") var source: String = "player"
 @onready var self_destruct_timer = $SelfDestructTimer
 @export var speed := 600.0
-@ecport var damage := 20
+@export var damage := 20
 
 var direction := Vector2.RIGHT  # Or LEFT depending on where the player is facing
 
@@ -19,7 +19,6 @@ func _ready():
 	self_destruct_timer.timeout.connect(_on_self_destruct_timeout)
 	
 	if source == "player":
-		print("p")
 		set_collision_layer_value(7, true) # I am a plkayer bullet
 		set_collision_mask_value(8, true) # detecting enemy hitbox
 		#
@@ -27,13 +26,12 @@ func _ready():
 		set_collision_mask_value(5, false)
 		set_collision_mask_value(10, false)
 	else:
-		print("e")
 		set_collision_layer_value(7, false)
 		set_collision_mask_value(8, false)
 		#
 		set_collision_layer_value(6, true) # I am an enemy bullet
 		set_collision_mask_value(5, true) # detecting player hitbox 
-		set_collision_mask_value(10, false) # and detecting player shields
+		set_collision_mask_value(10, true) # and detecting player shields
 
 		
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://clc7q5oao6ps"]
 
 [ext_resource type="Script" uid="uid://4waqbcobuv4w" path="res://enemy_manager/enemies/enemy_base.gd" id="1_etlf2"]
-[ext_resource type="Texture2D" uid="uid://c3gqx5n8f122o" path="res://sprites/spritesheet_retina.png" id="2_j6h0d"]
+[ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="2_j6h0d"]
 [ext_resource type="Script" uid="uid://vr3e1nhkwgri" path="res://enemy_manager/enemies/enemy_weapon_manager.gd" id="3_riobi"]
 [ext_resource type="PackedScene" uid="uid://bsmqt4uflx50g" path="res://projectile_manager/projectiles/projectile_arrow.tscn" id="4_in1ad"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsmqt4uflx50g"]
 
 [ext_resource type="Script" uid="uid://vj4dsa0yrfe2" path="res://projectile_manager/projectiles/projectile_arrow.gd" id="1_6jycy"]
-[ext_resource type="Texture2D" uid="uid://c3gqx5n8f122o" path="res://sprites/spritesheet_retina.png" id="1_kuf7h"]
+[ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="1_kuf7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jycy"]
 size = Vector2(95, 20)
@@ -25,8 +25,6 @@ animations = [{
 collision_layer = 64
 collision_mask = 131204
 script = ExtResource("1_6jycy")
-source = null
-speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, 0)

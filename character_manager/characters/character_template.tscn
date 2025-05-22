@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://5kcfaq5d83ed"]
 
-[ext_resource type="Texture2D" uid="uid://c3gqx5n8f122o" path="res://sprites/spritesheet_retina.png" id="1_0q85a"]
+[ext_resource type="Texture2D" uid="uid://b8b3ptuaygs13" path="res://sprites/spritesheet_retina.png" id="1_0q85a"]
 [ext_resource type="Script" uid="uid://dtsxr0wa8jsaf" path="res://character_manager/characters/character_base.gd" id="1_eu50f"]
 [ext_resource type="PackedScene" uid="uid://boyv7f5mhv6a1" path="res://character_manager/characters/character_state_machine/character_state_machine.tscn" id="3_0kt0h"]
 [ext_resource type="PackedScene" uid="uid://c8pwesl0l4fdr" path="res://character_manager/characters/shield_manager.tscn" id="4_aqj72"]

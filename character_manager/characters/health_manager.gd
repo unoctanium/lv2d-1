@@ -20,6 +20,7 @@ func take_damage(amount: int) -> void:
 		return
 
 	current_health = max(current_health - amount, 0)
+	health_bar.value = current_health
 	emit_signal("health_changed", current_health, max_health)
 
 	if current_health == 0:
@@ -30,12 +31,14 @@ func take_heal(amount: int) -> void:
 		return
 
 	current_health = min(current_health + amount, max_health)
+	health_bar.value = current_health
 	emit_signal("health_changed", current_health, max_health)
 
 func set_health(amount: int):
 		if amount <= 0 or current_health == max_health:
 			return
-		current_health = amount
+		current_health = 0
+		take_heal(amount)
 
 func take_full_heal() -> void:
 	take_heal(max_health)
